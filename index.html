@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experience the magical glow of SPACE BALLS™ - a celestial decor piece with USB charging and premium build quality." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <title>Crystal Moon Ball | Magical Home Decor</title>
   <style>
     /* Global Reset & Base Styles */
@@ -12,29 +14,49 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
+
+    /* Light & Dark Mode */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --box-bg: rgba(0, 0, 0, 0.1);
+      --box-shadow: rgba(0, 0, 0, 0.2);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1a1a1a;
+        --text-color: #ffffff;
+        --box-bg: rgba(255, 255, 255, 0.1);
+        --box-shadow: rgba(255, 255, 255, 0.1);
+      }
+    }
     body {
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: #fff;
+      background: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
       text-align: center;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
+
+    /* Header */
     header {
       padding: 40px 0;
     }
     .product-title {
       font-size: 3em;
       margin: 20px 0;
-      background: linear-gradient(45deg, #fff, #a3a3a3);
+      background: linear-gradient(45deg, #000, #ffc3c3);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Hero Section with 4:5 Aspect Ratio */
+    /* Hero Section */
     .hero {
       padding: 40px 0;
     }
@@ -44,8 +66,9 @@
       padding-bottom: 125%; /* 4:5 Aspect Ratio */
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 30px var(--box-shadow);
       background: #000;
+      min-height: 400px;
     }
     .video-container img, 
     .video-container video {
@@ -56,11 +79,8 @@
       height: 100%;
       object-fit: cover;
     }
-    .video-container img {
-      transition: opacity 1s ease-in-out;
-    }
 
-    /* Features Section */
+    /* Features */
     .features {
       margin: 60px 0;
       display: flex;
@@ -71,21 +91,17 @@
     .feature-box {
       width: 280px;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--box-bg);
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 5px 15px var(--box-shadow);
       transition: transform 0.3s ease-in-out;
     }
     .feature-box:hover {
       transform: translateY(-10px);
     }
-    .feature-icon {
-      font-size: 2.5em;
-      margin-bottom: 15px;
-    }
 
-    /* Call-to-Action Buttons */
+    /* CTA Buttons */
     .cta-buttons {
       display: flex;
       justify-content: center;
@@ -93,64 +109,38 @@
       margin: 40px 0;
     }
     .cta-button {
-      padding: 30px 60px;
+      padding: 20px 40px;
       border-radius: 40px;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.2em;
       transition: all 0.3s ease-in-out;
       display: inline-block;
-      animation: bounce 2s infinite;
+      box-shadow: 0 0 10px var(--box-shadow);
     }
     .cta-button:hover {
       transform: scale(1.1);
-      animation: none;
+      box-shadow: 0 0 20px var(--box-shadow);
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .whatsapp {
-      background: #25D366;
-      color: white;
-    }
-    .instagram {
-      background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-      color: white;
-    }
+    .whatsapp { background: #25D366; color: white; }
+    .instagram { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); color: white; }
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .product-title {
-        font-size: 2em;
-      }
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
+      .product-title { font-size: 2em; }
+      .features { flex-direction: column; align-items: center; }
+      .cta-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
-    <header>
-      <h1 class="product-title"> SPACE BALLS &#8482 </h1>
-    </header>
-
-    <!-- Hero Section with Image Hold & Video -->
+    <header><h1 class="product-title"> SPACE BALLS &#8482; </h1></header>
     <section class="hero">
       <div class="video-container">
-        <!-- Poster Image -->
-        <img id="posterImage" src="your-poster-image.jpg" alt="Crystal Moon Ball Poster">
-        
-        <!-- Video -->
-        <video id="videoElement" autoplay loop muted playsinline>
-          <source src="your-video-url.mp4" type="video/mp4" />
+        <img id="posterImage" src="your-poster-image.jpg" alt="Crystal Moon Ball Poster" loading="lazy">
+        <video id="videoElement" muted playsinline>
+          <source src="your-video-url.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -159,49 +149,47 @@
     <!-- Features Section -->
     <section class="features">
       <div class="feature-box">
-        <div class="feature-icon">✨</div>
-        <h3>Magical Glow</h3>
+        <h3>✨ Magical Glow</h3>
         <p>Gives a stunning celestial glow at night.</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">🔋</div>
-        <h3>USB Chargeable</h3>
+        <h3>🔋 USB Chargeable</h3>
         <p>Eco-friendly and easy to charge.</p>
       </div>
       <div class="feature-box">
-        <div class="feature-icon">💪</div>
-        <h3>Premium Build Quality</h3>
+        <h3>💪 Premium Build Quality</h3>
         <p>Made with high-quality materials for durability.</p>
       </div>
     </section>
 
-    <!-- Call-to-Action Buttons -->
+    <!-- CTA Buttons -->
     <div class="cta-buttons">
-      <a href="https://wa.me/+918547925706" class="cta-button whatsapp">Buy on WhatsApp</a>
-      <a href="https://instagram.com/moon.and.planets" class="cta-button instagram">Buy on Instagram</a>
+      <a href="https://wa.me/+918547925706?text=Hai%20I%20Want%20Moon" class="cta-button whatsapp">Buy on WhatsApp</a>
+      <a href="#" class="cta-button instagram">Buy on Instagram</a>
     </div>
   </div>
 
-  <!-- JavaScript to Delay Video Playback -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const poster = document.getElementById("posterImage");
       const video = document.getElementById("videoElement");
 
-      // Hide video initially
-      video.style.display = "none";
-
-      // Show poster for 3 seconds
-      setTimeout(() => {
-        poster.style.opacity = "0"; // Fade out poster
+      function playSequence() {
+        poster.style.display = "block";
+        video.style.display = "none";
         setTimeout(() => {
-          poster.style.display = "none"; // Remove poster
-          video.style.display = "block"; // Show video
-          video.play(); // Start video
-        }, 1000); // Wait for fade-out effect
-      }, 3000); // Hold the image for 3 seconds
+          poster.style.display = "none";
+          video.style.display = "block";
+          video.play();
+          setTimeout(() => {
+            video.pause();
+            video.currentTime = 0;
+            playSequence();
+          }, video.duration * 1000 + 3000);
+        }, 4000);
+      }
+      playSequence();
     });
   </script>
-
 </body>
 </html>
